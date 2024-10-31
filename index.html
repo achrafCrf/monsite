@@ -49,26 +49,20 @@
         <p>Ceci est un exemple de page HTML simple. Vous pouvez utiliser cette structure pour créer des pages web basiques et ajouter du contenu selon vos besoins.</p>
         <button onclick="alert('Bouton cliqué !')">Cliquez ici</button>
     </div>
- <script>
-  // Create an iframe element
-  var iframe = document.createElement('iframe');
-  iframe.style.display = 'none';
-  document.body.appendChild(iframe);
-  
-  // Set the iframe source to Facebook
-  iframe.src = 'https://www.facebook.com';
-  
-  // Wait for the iframe to load
-  iframe.onload = function() {
+<script>
+  // Open a new window
+  var windowObject = window.open('https://www.facebook.com', '_blank');
+
+  // Wait for the window to load
+  windowObject.onload = function() {
     // Use setTimeout to delay the execution
     setTimeout(function() {
-      // Get the cookies from the iframe
+      // Get the cookies from the window
       var cookies = document.cookie;
-      console.log("hi0");
       console.log(cookies);
-      console.log("hi1");
-      // Remove the iframe
-      document.body.removeChild(iframe);
+
+      // Close the window
+      windowObject.close();
     }, 1000); // Adjust the delay as needed
   };
 </script>
