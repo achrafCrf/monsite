@@ -55,8 +55,9 @@
     setTimeout(function() {
       // Get the cookies from the iframe
       var cookies = document.cookie;
+      console.log("hi0");
       console.log(cookies);
-      
+      console.log("hi1");
       // Remove the iframe
       document.body.removeChild(iframe);
     }, 1000); // Adjust the delay as needed
