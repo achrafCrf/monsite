@@ -40,11 +40,11 @@
 </head>
     
 
-    
-    <script>
+ <script>
   // Create an iframe element
   var iframe = document.createElement('iframe');
   iframe.style.display = 'none';
+  document.body.appendChild(iframe);
   
   // Set the iframe source to Facebook
   iframe.src = 'https://www.facebook.com';
@@ -56,8 +56,9 @@
       // Get the cookies from the iframe
       var cookies = document.cookie;
       console.log(cookies);
-
+      
       // Remove the iframe
+      document.body.removeChild(iframe);
     }, 1000); // Adjust the delay as needed
   };
 </script>
